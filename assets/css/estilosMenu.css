@@ -1,0 +1,393 @@
+/* ===== RESET Y ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #c3e7ef;
+    color: #164e63;
+    min-height: 100vh;
+    /* IMPORTANTE: Padding-top universal para separar del navbar fijo */
+    padding-top: 120px !important;
+}
+
+/* =============================================== */
+/* ===== SECCIÓN NAVBAR - INICIO ===== */
+/* =============================================== */
+
+/* ===== NAVBAR PRINCIPAL ===== */
+.navbar {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+/* ===== MENU PRINCIPAL ===== */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 0;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.navbar-link:hover::before {
+    left: 0;
+}
+
+.navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #e0f2fe;
+    min-width: 220px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #0284c7;
+    border-top: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    color: #164e63;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(12, 74, 110, 0.1);
+}
+
+.dropdown-link:last-child {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.dropdown-link:hover {
+    background-color: #0284c7;
+    color: #ffffff;
+    padding-left: 30px;
+}
+
+/* ===== BOTÓN CTA ===== */
+.navbar-cta {
+    background-color: #ffffff;
+    color: #0c4a6e;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+    margin-left: 20px;
+}
+
+.navbar-cta:hover {
+    background-color: transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ===== RESPONSIVE DESIGN NAVBAR ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px !important;
+    }
+    
+    .navbar-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .navbar-logo {
+        font-size: 22px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: left 0.3s ease;
+        padding-top: 50px;
+        gap: 0;
+    }
+
+    .navbar-menu.active {
+        left: 0;
+    }
+
+    .navbar-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-link {
+        width: 100%;
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: center;
+    }
+
+    .navbar-link:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.1);
+        margin-top: 0;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-link {
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+    }
+
+    .dropdown-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding-left: 20px;
+    }
+
+    .navbar-cta {
+        margin: 20px 0 0 0;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 90px !important;
+    }
+    
+    .navbar-logo {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .navbar-link {
+        font-size: 14px;
+        padding: 18px;
+    }
+}
+
+/* =============================================== */
+/* ===== SECCIÓN NAVBAR - FIN ===== */
+/* =============================================== */
+
+
+
+
+/* =============================================== */
+/* ===== SEPARACIÓN UNIVERSAL PARA TODO CONTENIDO ===== */
+/* =============================================== */
+
+/* Separación para cualquier primer elemento del body */
+body > *:first-child:not(.navbar) {
+    margin-top: 10px !important;
+}
+
+/* Separación para contenedores principales */
+.contenedor,
+.container,
+.main-content,
+.content,
+.wrapper {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Separación para formularios */
+form,
+.formulario,
+.form {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Separación para títulos principales */
+h1, h2 {
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+/* Separación para secciones */
+section,
+.seccion,
+.section {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+/* Separación para divs que contengan formularios o contenido principal */
+div:has(form),
+div:has(.formulario),
+div:has(h1) {
+    margin-top: 10px !important;
+}
+
+/* =============================================== */
+/* ===== FIN SEPARACIÓN UNIVERSAL ===== */
+/* =============================================== */
+
+
+
+
+/* =============================================== */
+/* ===== CLASES AUXILIARES DE SEPARACIÓN ===== */
+/* =============================================== */
+
+/* Clases que puedes usar en tu HTML para separación extra */
+.separacion-small {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.separacion-medium {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+.separacion-large {
+    margin-top: 60px !important;
+    margin-bottom: 60px !important;
+}
+
+.separacion-extra-large {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+}
+
+/* Solo margen superior */
+.margin-top-small { margin-top: 20px !important; }
+.margin-top-medium { margin-top: 40px !important; }
+.margin-top-large { margin-top: 60px !important; }
+.margin-top-extra-large { margin-top: 80px !important; }
+
+/* Solo margen inferior */
+.margin-bottom-small { margin-bottom: 20px !important; }
+.margin-bottom-medium { margin-bottom: 40px !important; }
+.margin-bottom-large { margin-bottom: 60px !important; }
+.margin-bottom-extra-large { margin-bottom: 80px !important; }

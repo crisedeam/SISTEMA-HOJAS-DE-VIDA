@@ -1,0 +1,30 @@
+# Archivos de configuración sensibles
+connection.php
+
+# Archivos de uploads (imágenes de usuarios)
+assets/uploads/persona/*
+assets/uploads/empresa/*
+assets/uploads/portafolio/*
+
+# Mantener las carpetas pero no su contenido
+!assets/uploads/persona/.gitkeep
+!assets/uploads/empresa/.gitkeep
+!assets/uploads/portafolio/.gitkeep
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Archivos temporales de PHP
+*.tmp
