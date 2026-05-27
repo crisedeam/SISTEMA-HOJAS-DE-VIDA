@@ -143,7 +143,9 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ## ✨ Autor
 
-[Tu Nombre]
+Cristihan Ederik Alvarado Muñoz
+Luis Mauricio Sierra 
+Andres Felipe Vargas
 
 ## 📧 Contacto
 
